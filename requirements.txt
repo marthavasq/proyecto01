@@ -57,7 +57,6 @@ Pygments
 pyparsing
 python-dateutil
 pytz
-pywin32
 pyzmq
 referencing
 requests
