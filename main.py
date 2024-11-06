@@ -1,5 +1,11 @@
 import pandas as pd 
 from fastapi import FastAPI
+from sklearn.feature_extraction.text import CountVectorizer
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np 
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 app = FastAPI()
 
@@ -90,3 +96,30 @@ def votos_titulo(titulo_de_la_filmacion):
     return f"La película '{titulo}' se estrenó en el año {año}, cuenta con un total de {votos} valoraciones, con un promedio de {promedio_votos}."
 
 print(votos_titulo("Alien:_Covenant"))
+
+
+#modelo de recomendacion usando similitud de coseno. 
+
+
+df_funciones['combined_features'] = df_funciones['genres_name'] + ' ' + df_funciones['belongs_to_collection_name'] + ' ' + df_funciones['overview']
+tfidf_vectorizer = TfidfVectorizer(stop_words='english')
+tfidf_matrix = tfidf_vectorizer.fit_transform(df_funciones['combined_features'].fillna(''))  
+
+#  Función de recomendación
+@app.get("/recomendacion/{titulo}")
+def recomendacion(titulo):
+    
+    if titulo not in df_funciones['title'].values:
+        return "La película no se encuentra en el dataset."
+    idx = df_funciones[df_funciones['title'] == titulo].index[0]
+    
+    cosine_similarities = cosine_similarity(tfidf_matrix[idx], tfidf_matrix).flatten()
+    similar_indices = cosine_similarities.argsort()[-6:-1][::-1]  
+    recommended_titles = df_funciones.iloc[similar_indices]['title'].tolist()
+    
+    return recommended_titles
+
+
+pelicula_input = "from russia with love"  
+recomendaciones = recomendacion(pelicula_input)
+print(f"Películas recomendadas para '{pelicula_input}':", recomendaciones)
