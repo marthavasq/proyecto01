@@ -99,6 +99,14 @@ Una vez que toda la data es consumible por la API, se crea un sistema de recomen
 
 
 
+## Repositorio
+
+* main.py : Archivo principal donde podemos ver las funciones y el sistema de recomendacion de similitud del coseno utilizada en el desarrollo de la API. 
+* requirements.txt: Archivo con todas las librerias que se utilizaron en el proyecto. 
+* ETL.ipynb: Notebook detallado con el proceso de extraccion, transformacion y carga. 
+* EDA.ipynb: Notebook detallado con el proceso de limpieza de datos. 
+
+
 
 
 ## Links y accesos rapidos
@@ -107,7 +115,7 @@ Una vez que toda la data es consumible por la API, se crea un sistema de recomen
 
 [video explicacion ](https://www.youtube.com/watch?v=-bsR86aNKEs)- Explicacion en youtube de las APIS 
 
-**accesos rapidos**
+**contacto**: Martha Vasquez. 
 
 
 
