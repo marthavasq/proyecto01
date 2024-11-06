@@ -7,18 +7,21 @@
 # Proyecto individual 01
 # Machine learning operations (MLOps)
 
+
+![image](https://github.com/user-attachments/assets/853feab0-46dd-4b18-a520-c12e1d974615)
+
+
+
+
+
 ## Descripcion del proyecto 
 
 - Este proyecto tiene como objetivo desarrollar un sistema de recomendacion de peliculas basado en tecnicas de **machine learning**, que ofrece una experiencia de recomendacion  personalizada tomando tu historial de peliculas como referencia. 
 
-**Tabla de contenido**
-1.
-2.
-3.
 
-## instalacion y requisitos 
-**Requisitos**
-**pasos de instalacion**
+
+## Instalacion y requisitos 
+En el archivo requirements.txt podras encontrar todos los requisitos de instalacion para el modelo de recomendacion. 
 
 ## ETL
 **Transformaciones**
